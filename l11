@@ -1,0 +1,54 @@
+import java.util.*;
+
+public class p11 {
+
+    public static void main(String args[]){
+    
+    Scanner sc=new Scanner(System.in);
+    
+    System.out.println("entert the number  elements");
+    int n=sc.nextInt();
+    
+    int[] arr=new int[n];
+    
+    System.out.println("enter the ele in to array");
+    
+    for(int i=0;i<n;i++)
+    arr[i]=sc.nextInt();
+    
+    qs(arr,0,n-1);
+    
+    System.out.println("sorted list of array");
+    
+    for(int i=0;i<n;i++)
+    System.out.println(arr[i]);
+
+    }
+    public static void qs( int arr[],int f ,int l)
+    {
+        int t,p,i,j;
+        if(f<l)
+        {
+            p=f; i=f; j=l;
+            
+            while(i<j)
+            {             
+                while(arr[p]<arr[j])
+                j--;   
+                while(arr[p]>=arr[i] && i<l)
+                i++;
+                if(i<j)
+                {
+                    t=arr[i];
+                    arr[i]=arr[j];
+                    arr[j]=t;
+                }
+            }
+            t=arr[p];
+            arr[p]=arr[j];
+            arr[j]=t;
+            qs(arr,f,j-1);
+            qs(arr,j+1,l);
+        }
+    }
+}
