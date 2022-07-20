@@ -1,0 +1,45 @@
+import java.util.*;
+public class p3 { 
+
+    public static void main(String[] args) {
+    
+  Scanner sc=new Scanner(System.in);
+  
+  int l,s,b,lp=45,sp=30,bp=25,tl=0,ts=0,tb=0,sales;
+  double comm=0.0;
+  
+ System.out.println("enter the locks");
+l=sc.nextInt();
+
+while(l!=-1)
+{
+    System.out.println("enter s and barrels");
+    s=sc.nextInt();
+    b=sc.nextInt();
+    tl=tl+l;
+    ts=ts+s;
+    tb=tb+b;
+    System.out.println("enter the locks");
+    l=sc.nextInt();
+}
+
+if(tl<1 ||tl>70 ||tb<1 || tb>90 || ts<1|| ts>80 )
+{
+    System.out.println("out of range");
+    return;  
+} 
+ sales=tl*lp+ts*sp+tb*bp;
+
+    if(sales>0 && sales<=1000)
+    comm=sales*0.1;
+
+    else if(sales>1000 && sales<=1800)
+    comm=100+0.15*(sales-1000);
+    
+    else if(sales>1800)
+    comm=100+0.15*800+0.2*(sales-1800);
+    
+    System.out.println("sales"+sales);
+    System.out.println("comm"+comm);
+ }
+ }
